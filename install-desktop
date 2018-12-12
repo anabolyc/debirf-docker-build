@@ -4,5 +4,4 @@
 # installs desktop
 
 #DEBIRF_PACKAGE>+systemd-sysv
-#DEBIRF_PACKAGE>+lightdm
-#DEBIRF_PACKAGE>+xubuntu-desktop
+#DEBIRF_PACKAGE>+lubuntu-desktop
