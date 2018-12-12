@@ -2,17 +2,7 @@
 
 # debirf module: install-desktop
 # installs desktop
-#
+
 #DEBIRF_PACKAGE>+systemd-sysv
-#_EBIRF_PACKAGE>+lightdm
-#_EBIRF_PACKAGE>+lubuntu-desktop
-
-# fix issue with missing lib while initrd generation
-#debirf_exec apt-get -y --reinstall install libklibc
-#debirf_exec ls -al /lib
-
-# echo " >>> INSTALLING lightdm"
-#debirf_exec apt-get -y install lightdm
-
-# echo " >>> INSTALLING xubuntu"
-# debirf_exec apt-get -y install xubuntu-desktop
+#DEBIRF_PACKAGE>+lightdm
+#DEBIRF_PACKAGE>+xubuntu-desktop

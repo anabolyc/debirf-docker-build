@@ -26,9 +26,14 @@ RUN echo 'DEBIRF_COMPONENTS=main,universe' >> /debirf/rescue/debirf.conf
 RUN sed -i "117i   if [ \"\$DEBIRF_COMPONENTS\" ] ; then OPTS=\"--components='\$DEBIRF_COMPONENTS' \$OPTS\"; fi\n" $(which debirf)
 
 RUN if [ -f "/debirf/rescue/modules/install-kernel" ] ; then \
-		sed -i "54iKMPKG=\$(basename \"\$DEBIRF_ROOT\"/var/cache/apt/archives/linux-modules-*)" /debirf/rescue/modules/install-kernel ; \
-		sed -i "57idebirf_exec dpkg --extract /var/cache/apt/archives/\"\$KMPKG\" /" /debirf/rescue/modules/install-kernel ; \
+		sed -i "58iKPKG=\$(basename \"\$DEBIRF_ROOT\"/var/cache/apt/archives/linux-modules-*)" /debirf/rescue/modules/install-kernel ; \
+		sed -i "59iecho \"extracting kernel modules package \$KPKG...\"" /debirf/rescue/modules/install-kernel ; \
+		sed -i "60idebirf_exec mkdir -p \"\$DEBIRF_ROOT\"/tmp/m" /debirf/rescue/modules/install-kernel ; \ 
+		sed -i "61idebirf_exec dpkg --extract /var/cache/apt/archives/\"\$KPKG\" /tmp/m" /debirf/rescue/modules/install-kernel ; \
+		sed -i "62icp -rp \"\$DEBIRF_ROOT\"/tmp/m/lib/* \"\$DEBIRF_ROOT\"/lib && rm -rf \"\$DEBIRF_ROOT\"/tmp/m/lib" /debirf/rescue/modules/install-kernel ; \
+		sed -i "63icp -rp \"\$DEBIRF_ROOT\"/tmp/m/* \"\$DEBIRF_ROOT\"/ && rm -rf \"\$DEBIRF_ROOT\"/tmp/m" /debirf/rescue/modules/install-kernel ; \
 	fi
+
 RUN if [ -f "/debirf/rescue/modules/network" ] ; then \
 		sed -i "30s/.*/debirf_exec systemctl disable systemd-resolved.service \&\& debirf_exec systemctl enable systemd-resolved.service/" /debirf/rescue/modules/network ; \
 	fi
