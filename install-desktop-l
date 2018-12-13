@@ -6,5 +6,4 @@
 #DEBIRF_PACKAGE>+systemd-sysv
 #_EBIRF_PACKAGE>+lubuntu-desktop
 
-echo " *** installing lubuntu"
 debirf_exec apt-get install -y lubuntu-desktop

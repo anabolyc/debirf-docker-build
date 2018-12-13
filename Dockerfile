@@ -39,7 +39,7 @@ RUN if [ -f "/debirf/rescue/modules/network" ] ; then \
 	fi
 
 # custom modules
-ADD install-desktop /debirf/rescue/modules
+ADD install-desktop-x /debirf/rescue/modules
 
 # start build
 COPY build.sh /debirf/rescue
