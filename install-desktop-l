@@ -6,7 +6,5 @@
 #DEBIRF_PACKAGE>+systemd-sysv
 #_EBIRF_PACKAGE>+lubuntu-desktop
 
-echo " *** installing xubuntu"
-debirf_exec apt-get install -y xubuntu-desktop blueman-
-
-echo " *** done"
+echo " *** installing lubuntu"
+debirf_exec apt-get install -y lubuntu-desktop
