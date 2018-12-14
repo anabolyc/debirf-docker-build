@@ -19,7 +19,6 @@ WORKDIR /debirf/rescue
 RUN echo 'DEBIRF_LABEL="debirf-rescue"' >> /debirf/rescue/debirf.conf
 RUN echo 'DEBIRF_SUITE=disco' >> /debirf/rescue/debirf.conf
 RUN echo 'DEBIRF_DISTRO=ubuntu' >> /debirf/rescue/debirf.conf
-#RUN echo 'DEBIRF_EXTRA_PACKAGES=nano,cpio,dbus' >> /debirf/rescue/debirf.conf
 RUN echo 'DEBIRF_COMPONENTS=main,universe' >> /debirf/rescue/debirf.conf
 
 # scripts fixups

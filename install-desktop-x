@@ -6,4 +6,4 @@
 #_EBIRF_PACKAGE>+systemd-sysv
 #_EBIRF_PACKAGE>+lubuntu-desktop
 
-debirf_exec apt-get install -y xubuntu-desktop blueman-
+debirf_exec apt-get install -y xfce4
